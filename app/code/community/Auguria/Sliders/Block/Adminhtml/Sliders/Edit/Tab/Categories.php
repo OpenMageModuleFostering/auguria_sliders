@@ -171,7 +171,6 @@ class Auguria_Sliders_Block_Adminhtml_Sliders_Edit_Tab_Categories extends Mage_A
         $allChildren = $node->getAllChildren();
         if ($allChildren) {
             $selectedCategoryIds = $this->_getCategoryIds();
-            Mage::log('$selectedCategoryIds '.$selectedCategoryIds);
             $allChildrenArr = explode(',', $allChildren);
             for ($i = 0, $cnt = count($selectedCategoryIds); $i < $cnt; $i++) {
                 $isSelf = $node->getId() == $selectedCategoryIds[$i];

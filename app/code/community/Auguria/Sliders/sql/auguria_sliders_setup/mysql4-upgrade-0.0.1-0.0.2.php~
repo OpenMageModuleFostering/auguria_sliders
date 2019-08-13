@@ -30,10 +30,10 @@ if ($collection && $collection->count()>0) {
 }
 
 $datas[] = array(
-			"name"=>"Abstract",
-			"image"=>"auguria/sliders/abstract.jpg",
+			"name"=>"Ara bleu",
+			"image"=>"auguria/sliders/Ara.jpg",
 			"link"=>"http://www.auguria.net/",
-			"cms_content"=>"<p>This is an abstract picture.</p>",
+			"cms_content"=>"<p>L'<a title='Ara bleu' href='http://fr.wikipedia.org/wiki/Ara_bleu'>Ara bleu</a> est un perroquet pr&eacute;sent en <a title='Am&eacute;rique latine' href='http://fr.wikipedia.org/wiki/Am%C3%A9rique_latine'>Am&eacute;rique latine</a>.</p>",
 			"sort_order"=>1,
 			"is_active"=>1,
 			"stores"=>array(0),
@@ -41,10 +41,10 @@ $datas[] = array(
 			"category_ids"=>$categories
 		);
 $datas[] = array(
-			"name"=>"Food",
-			"image"=>"auguria/sliders/food.jpg",
+			"name"=>"Anax empereur",
+			"image"=>"auguria/sliders/Anax.jpg",
 			"link"=>"http://www.auguria.net/",
-			"cms_content"=>"This is a food picture.",
+			"cms_content"=>"<p>Un <a style='color: #e26703;' title='Anax empereur' href='http://fr.wikipedia.org/wiki/Anax_empereur'>Anax empereur</a> (<em>Anax imperator</em>). Photo prise &agrave; Gubbeen, dans le comt&eacute; de Cork (Irlande).</p>",
 			"sort_order"=>2,
 			"is_active"=>1,
 			"stores"=>array(0),

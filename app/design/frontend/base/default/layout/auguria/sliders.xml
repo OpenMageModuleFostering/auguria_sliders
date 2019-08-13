@@ -12,7 +12,7 @@
         <reference name="head">
             <action method="addCss"><stylesheet>css/auguria/sliders/default.css</stylesheet></action>
             <action method="addJs"><script>auguria/sliders/jquery-1.7.2.min.js</script></action>
-            <action method="addJs"><script>auguria/sliders/slides.min.jquery.js</script></action>
+            <action method="addJs"><script>auguria/sliders/slides.min.jquery_forked.js</script></action>
         </reference>
         <reference name="content">
             <block type="auguria_sliders/cms_page_slider" name="auguria_sliders" template="auguria/sliders/slider.phtml" before="-"/>
@@ -22,7 +22,7 @@
         <reference name="head">
             <action method="addCss"><stylesheet>css/auguria/sliders/default.css</stylesheet></action>
             <action method="addJs"><script>auguria/sliders/jquery-1.7.2.min.js</script></action>
-            <action method="addJs"><script>auguria/sliders/slides.min.jquery.js</script></action>
+            <action method="addJs"><script>auguria/sliders/slides.min.jquery_forked.js</script></action>
         </reference>
         <reference name="content">
             <block type="auguria_sliders/catalog_category_slider" name="auguria_sliders" template="auguria/sliders/slider.phtml" before="-"/>
@@ -32,7 +32,7 @@
         <reference name="head">
             <action method="addCss"><stylesheet>css/auguria/sliders/default.css</stylesheet></action>
             <action method="addJs"><script>auguria/sliders/jquery-1.7.2.min.js</script></action>
-            <action method="addJs"><script>auguria/sliders/slides.min.jquery.js</script></action>
+            <action method="addJs"><script>auguria/sliders/slides.min.jquery_forked.js</script></action>
         </reference>
         <reference name="content">
             <block type="auguria_sliders/catalog_category_slider" name="auguria_sliders" template="auguria/sliders/slider.phtml" before="-"/>

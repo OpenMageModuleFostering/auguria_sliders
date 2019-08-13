@@ -7,63 +7,71 @@
  */
 ?>
 <?php
-	$slides = $this->getSlides();
-	$imageWidth = $this->getImageWidth();
-	$imageHeight = $this->getImageHeight();
-	$captionHeight = $this->getCaptionHeight();
-	
-	if ($slides && $slides->count()>0):
+$slides = $this->getSlides();
+$imageWidth = $this->getImageWidth();
+$imageHeight = $this->getImageHeight();
+$captionHeight = $this->getCaptionHeight();
+
+if ($slides && $slides->count()>0):
 ?>
 <div id="auguria-slider" class="clearer">
 	<div class="auguria-slider-container">
-<?php
+		<?php
 		foreach ($slides as $slide):
-?>
+		?>
 		<div class="slide">
-<?php
+			<?php
 			$displayLink = $this->displayLink($slide);
 			$displayImage = $this->displayImage($slide);
 			$displayCmsContent = $this->displayCmsContent($slide);
 			if ($displayLink):
-?>
-			<a class="auguria-slider-link" href="<?php echo $slide->getLink(); ?>" title="<?php echo $slide->getName(); ?>">
-<?php 
-			endif;
-			if ($displayImage):
-?>
-				<img class="auguria-slider-image" alt="<?php echo $slide->getName(); ?>" src="<?php echo $this->getResizedImage($slide, $imageWidth, $imageHeight); ?>" />
-<?php
-			endif;
-			if ($displayLink):
-?>
+			?>
+			<a class="auguria-slider-link"
+				href="<?php echo $slide->getLink(); ?>"
+				title="<?php echo $slide->getName(); ?>"> <?php 
+				endif;
+				if ($displayImage):
+				?> <img class="auguria-slider-image"
+				alt="<?php echo $slide->getName(); ?>"
+				src="<?php echo $this->getResizedImage($slide, $imageWidth, $imageHeight); ?>" />
+				<?php
+				endif;
+				if ($displayLink):
+				?>
 			</a>
-<?php 
+			<?php 
 			endif;
 			if ($displayCmsContent):
-?>
-			<div class="caption" style="height: <?php echo $captionHeight; ?>px;"><?php echo $slide->getCmsContent(); ?></div>
-<?php 
+			?>
+			<div class="caption" style="height: <?php echo $captionHeight; ?>px;">
+				<?php echo $slide->getCmsContent(); ?>
+			</div>
+			<?php 
 			endif;
-?>
+			?>
 		</div>
-<?php
+		<?php
 		endforeach;
-?>
+		?>
 	</div>
-<?php 
- 		if (Mage::getStoreConfig('auguria_sliders/general/generate_next_prev')=='true' && $slides->count()>1):
-?>
-	<a href="#" class="prev"><span><?php echo $this->__('Previous'); ?></span></a>
-	<a href="#" class="next"><span><?php echo $this->__('Next'); ?></span></a>
-<?php 
-		endif;
-?>
+	<?php 
+	if (Mage::getStoreConfig('auguria_sliders/general/generate_next_prev')=='true' && $slides->count()>1):
+	?>
+	<a href="#" class="prev"><span><?php echo $this->__('Previous'); ?> </span>
+	</a> <a href="#" class="next"><span><?php echo $this->__('Next'); ?> </span>
+	</a>
+	<?php 
+	endif;
+	?>
 </div>
 
 <script type="text/javascript">
 //<![CDATA[    
 	jQuery(function(){
-		jQuery("#auguria-slider").slides({
+
+		var slide = jQuery("#auguria-slider").slides({
+			height : <?php echo $imageHeight; ?>,
+			width : <?php echo $imageWidth; ?>,
     		container: 'auguria-slider-container',
 <?php
 		if (Mage::getStoreConfig('auguria_sliders/general/preload')=='true'):
@@ -85,26 +93,20 @@
             hoverPause: <?php echo Mage::getStoreConfig('auguria_sliders/general/hover_pause'); ?>,
             autoHeight: <?php echo Mage::getStoreConfig('auguria_sliders/general/auto_height'); ?>,
             autoHeightSpeed: <?php echo Mage::getStoreConfig('auguria_sliders/general/auto_height_speed'); ?>,
+            captionHeight: <?php echo $this->getCaptionHeight(); ?>,
+            captionSize: 16,
 <?php 
 		if ((int)Mage::getStoreConfig('auguria_sliders/general/animate_caption')>0):
 ?>
             animationStart: function(current){
             	jQuery('.caption').animate({
 					bottom:-<?php echo $this->getCaptionHeight(); ?>
-				},<?php echo Mage::getStoreConfig('auguria_sliders/general/animate_caption'); ?>);
-				if (window.console && console.log) {
-					// example return of current slide number
-					console.log('animationStart on slide: ', current);
-				};
+				},<?php echo Mage::getStoreConfig('auguria_sliders/general/animate_caption'); ?>);				
 			},
 			animationComplete: function(current){
 				jQuery('.caption').animate({
 					bottom:0
-				},<?php echo Mage::getStoreConfig('auguria_sliders/general/animate_caption'); ?>);
-				if (window.console && console.log) {
-					// example return of current slide number
-					console.log('animationComplete on slide: ', current);
-				};
+				},<?php echo Mage::getStoreConfig('auguria_sliders/general/animate_caption'); ?>);				
 			},
 			slidesLoaded: function() {
 				jQuery('.caption').animate({
@@ -116,8 +118,9 @@
 ?>
     	});
 	});
+	
 //]]>
 </script>
 <?php
-	endif;
+endif;
 ?>
