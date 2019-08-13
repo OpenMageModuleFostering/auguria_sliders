@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Auguria_Sliders",
+    "type": "magento-module",
+    "license": "GPL-3.0",
+    "homepage": "",
+    "description": "Auguria_Sliders",
+    "authors": [
+    {
+        "name": "Auguria",
+        "email": "magento@auguria.net"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
